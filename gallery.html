@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Haven - Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .item-img {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid #3E5641; 
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0; top: 0;
+            width: 100%; height: 100%; 
+            background-color: rgba(0,0,0,0.7); 
+        }
+        .modal-content {
+            background-color: #FFFFFF;
+            margin: 10% auto; 
+            padding: 30px;
+            border-radius: 8px;
+            width: 60%;
+            text-align: left;
+            color: #2E2E4E;
+            position: relative;
+        }
+        .close { position: absolute; right: 20px; top: 10px; font-size: 28px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-box"><img src="Client3_LogoPalette2_2E2E4E.png" alt="Logo"></div>
+        <div class="title-box"><h1>Shop Our Collection</h1></div>
+        <div class="menu-box">
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+            <ul class="nav-links" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="staff.html">Staff Picks</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <center><a href="index.html" class="home-btn">Home</a></center>
+        <table>
+            <tr>
+                <td><img src="brie_mine.png" alt="Brie Mine 4Ever" class="item-img">Brie Mine 4Ever<br><br><button class="buy-btn" onclick="addToCart('Brie Mine 4Ever')">Add to Cart</button></td>
+                <td><img src="glory_riders.png" alt="Glory Riders" class="item-img">Glory Riders<br><br><button class="buy-btn" onclick="addToCart('Glory Riders')">Add to Cart</button></td>
+                <td><img src="sorcerers.png" alt="Sorcerer's Chronicles" class="item-img">Sorcerer's Chronicles<br><br><button class="buy-btn" onclick="addToCart('Sorcerer\'s Chronicles')">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="ball_mag.png" alt="Ball Magazine" class="item-img">Ball Magazine<br><br><button class="buy-btn" onclick="addToCart('Ball Magazine')">Add to Cart</button></td>
+                <td><img src="travel_mag.png" alt="Travel Magazine" class="item-img">Travel Magazine<br><br><button class="buy-btn" onclick="addToCart('Travel Magazine')">Add to Cart</button></td>
+                <td><img src="eat_mag.png" alt="Eat. Magazine" class="item-img">Eat. Magazine<br><br><button class="buy-btn" onclick="addToCart('Eat. Magazine')">Add to Cart</button></td>
+            </tr>
+            <tr>
+                <td><img src="tote_bag.png" alt="Canvas Tote Bag" class="item-img">Canvas Tote Bag<br><br><button class="buy-btn" onclick="addToCart('Canvas Tote Bag')">Add to Cart</button></td>
+                <td><img src="notebook.png" alt="Notebook" class="item-img">Notebook<br><br><button class="buy-btn" onclick="addToCart('Notebook')">Add to Cart</button></td>
+                <td><img src="stickers.png" alt="Sticker Set" class="item-img">Sticker Set<br><br><button class="buy-btn" onclick="addToCart('Sticker Set')">Add to Cart</button></td>
+            </tr>
+        </table>
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="buy-btn" style="padding: 15px 30px;" onclick="openCartModal()">View Cart</button>
+        </div>
+    </main>
+
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">Your Cart</div>
+            <ul id="cartList"></ul>
+            <div style="margin-top:20px;">
+                <button class="buy-btn" onclick="clearCart(); closeModal();">Clear Cart</button>
+                <button class="buy-btn" onclick="processOrder(); closeModal();">Process Order</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="sub-box">
+            <p>Sign up for our Newsletter:</p>
+            <form onsubmit="subscribeAlert(); return false;">
+                <input type="email" id="newsletterEmail" placeholder="Email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+        <div class="socials">
+            <a href="#">FB</a> <a href="#">IG</a> <a href="#">X</a> <a href="#">YouTube</a>
+        </div>
+        <p>© 2026 Book Haven Bookstore</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function openCartModal() {
+            const modal = document.getElementById("cartModal");
+            const list = document.getElementById("cartList");
+            let cartItems = JSON.parse(sessionStorage.getItem('bookHavenCart')) || [];
+            list.innerHTML = ""; 
+            if (cartItems.length === 0) {
+                list.innerHTML = "<li>Your cart is empty!</li>";
+            } else {
+                cartItems.forEach(item => {
+                    let li = document.createElement("li");
+                    li.textContent = item;
+                    list.appendChild(li);
+                });
+            }
+            modal.style.display = "block";
+        }
+        function closeModal() { document.getElementById("cartModal").style.display = "none"; }
+    </script>
+</body>
+</html>

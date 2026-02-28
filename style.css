@@ -1,0 +1,74 @@
+/* Palette 2 Core */
+body {
+    background-color: #2E2E4E; /* Midnight Manuscript */
+    color: #C1CFD6; /* Vintage Paper */
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+}
+
+/* Header - Logo Left, Title Center, Menu Right */
+header {
+    background-color: #3F5461; /* Literature Blue */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    border-bottom: 3px solid #3E5641;
+}
+
+.logo-box img { 
+    height: 80px; 
+    width: auto; 
+    display: block;
+}
+
+.title-box { flex-grow: 1; text-align: center; }
+.title-box h1 { margin: 0; font-size: 1.8em; color: #FFFFFF !important; }
+
+/* Hamburger Dropdown */
+.menu-box { position: relative; width: 80px; text-align: right; }
+.hamburger { font-size: 40px; cursor: pointer; color: #FFFFFF !important; }
+
+.nav-links {
+    display: none;
+    position: absolute;
+    right: 0; top: 60px;
+    background: #3F5461;
+    border: 1px solid #C1CFD6;
+    list-style: none;
+    padding: 0; margin: 0;
+    z-index: 1000;
+    min-width: 160px;
+}
+
+.nav-links.show { display: block; }
+.nav-links li a {
+    display: block;
+    padding: 15px;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-bottom: 1px solid #2E2E4E;
+}
+
+/* Content & Tables */
+main { padding: 40px; max-width: 1000px; margin: auto; }
+.home-btn {
+    background: #5C2E5C; 
+    color: white !important;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+td { border: 1px solid #3E5641; padding: 20px; text-align: center; }
+.buy-btn { background: #5C2E5C; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; }
+
+/* Universal Footer */
+footer { background: #3F5461; text-align: center; padding: 40px; border-top: 3px solid #3E5641; }
+.sub-box input { padding: 10px; width: 200px; border: none; }
+.sub-box button { background: #5C2E5C; color: white; padding: 10px; border: none; cursor: pointer; }
+.socials { margin-top: 20px; }
+.socials a { color: white; margin: 0 10px; text-decoration: none; font-weight: bold; }
