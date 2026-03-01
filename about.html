@@ -2,50 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Book Haven - About Us</title>
+    <title>About Us - Book Haven</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="logo-box"><img src="Client3_LogoPalette2_2E2E4E.png" alt="Logo"></div>
-        <div class="title-box"><h1>About Our Sanctuary</h1></div>
-        <div class="menu-box">
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
-            <ul class="nav-links" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="staff.html">Staff Picks</a></li>
-            </ul>
-        </div>
+        <h1>About Our Sanctuary</h1>
+        <div class="menu-box"><span class="hamburger" onclick="toggleMenu()" style="font-size:30px; cursor:pointer; color:#C1CFD6;">&#9776;</span></div>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="staff.html">Staff Picks</a></li>
+        </ul>
     </header>
-    <main>
-        <center><a href="index.html" class="home-btn">Home</a></center>
+
+    <main class="about-content">
+        <a href="index.html" class="home-btn" style="margin-bottom: 20px;">Home</a>
+        
         <h3>Hours of Operation</h3>
         <ul>
             <li>Mon-Fri: 9 a.m. to 8 p.m.</li>
             <li>Sat: 10 a.m. to 6 p.m.</li>
             <li>Sun: 11 a.m. to 5 p.m.</li>
         </ul>
+
         <h3>Feedback & Custom Orders</h3>
-        <form onsubmit="saveAndSubmit(); return false;">
-            <p>Name: <input type="text" id="userName" required></p>
-            <p>Details: <textarea id="userRequest" required></textarea></p>
-            <button type="submit" class="buy-btn">Submit Request</button>
-        </form>
+        <p>Name: <br><input type="text" id="userName" style="width: 300px;"></p>
+        <p>Details: <br><textarea id="userRequest" style="width: 300px; height: 80px;"></textarea></p>
+        <button onclick="saveAndSubmit()">Submit Request</button>
     </main>
+
     <footer>
-        <div class="sub-box">
-            <p>Sign up for our Newsletter:</p>
-            <form onsubmit="subscribeAlert(); return false;">
-                <input type="email" id="newsletterEmail" placeholder="Email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-        <div class="socials">
+        <p>Sign up for our Newsletter:</p>
+        <form onsubmit="event.preventDefault(); subscribeAlert();">
+            <input type="email" id="newsletterEmail" placeholder="Email" required style="padding: 10px;">
+            <button type="submit" id="subscribe-btn">Subscribe</button>
+        </form>
+        <div class="social-links">
             <a href="#">FB</a> <a href="#">IG</a> <a href="#">X</a> <a href="#">YouTube</a>
         </div>
-        <p>© 2026 Book Haven Bookstore</p>
+        <p>&copy; 2026 Book Haven Bookstore</p>
     </footer>
     <script src="script.js"></script>
 </body>

@@ -2,42 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Book Haven - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Haven Bookstore</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div class="logo-box"><img src="Client3_LogoPalette2_2E2E4E.png" alt="Logo"></div>
-        <div class="title-box"><h1>Book Haven Bookstore</h1></div>
+        <div class="logo-box">
+            <img src="Client3_LogoPalette2_2E2E4E.png" alt="Book Haven Logo">
+        </div>
+        <div class="title-box">
+            <h1>Book Haven Bookstore</h1>
+        </div>
         <div class="menu-box">
-            <div class="hamburger" onclick="toggleMenu()">☰</div>
-            <ul class="nav-links" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="staff.html">Staff Picks</a></li>
-            </ul>
+            <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
         </div>
+        <ul id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="staff.html">Staff Picks</a></li>
+        </ul>
     </header>
+
     <main>
-        <h2>Community Involvement & Highlights</h2>
-        <p>We are dedicated to our local community through school book drives and weekly "Yarn & Tales" events.</p>
-        <h3>Shopping Perks</h3>
-        <p>Enjoy free coffee with every purchase and loyalty points on all hardcovers.</p>
+        <section class="hero">
+            <h2>Community Involvement & Highlights</h2>
+            <p>We are dedicated to our local community through school book drives and weekly "Yarn & Tales" events.</p>
+            <h3>Shopping Perks</h3>
+            <p>Enjoy free coffee with every purchase and loyalty points on all hardcovers.</p>
+        </section>
     </main>
-    <footer>
-        <div class="sub-box">
-            <p>Sign up for our Newsletter:</p>
-            <form onsubmit="subscribeAlert(); return false;">
-                <input type="email" id="newsletterEmail" placeholder="Email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-        <div class="socials">
-            <a href="#">FB</a> <a href="#">IG</a> <a href="#">X</a> <a href="#">YouTube</a>
-        </div>
-        <p>© 2026 Book Haven Bookstore</p>
-    </footer>
+
+  <footer>
+    <p>Sign up for our Newsletter:</p>
+    <form onsubmit="event.preventDefault(); subscribeAlert();" style="margin-bottom: 20px;">
+        <input type="email" id="newsletterEmail" placeholder="Email" required style="padding: 10px;">
+        <button type="submit" id="subscribe-btn">Subscribe</button>
+    </form>
+    <div class="social-links">
+        <a href="#">FB</a> <a href="#">IG</a> <a href="#">X</a> <a href="#">YouTube</a>
+    </div>
+    <p>&copy; 2026 Book Haven Bookstore</p>
+</footer>
+
     <script src="script.js"></script>
 </body>
 </html>
